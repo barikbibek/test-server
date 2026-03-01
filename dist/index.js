@@ -20,6 +20,9 @@ const app = (0, express_1.default)();
 const client = new client_1.PrismaClient();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "ok" });
+});
 app.post('/send', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { username, password } = req.body;
     try {

@@ -10,6 +10,10 @@ const client = new PrismaClient()
 app.use(express.json())
 app.use(cors())
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.post('/send', async(req, res) => {
     const { username, password } = req.body
     try {
